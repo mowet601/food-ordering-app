@@ -6,3 +6,6 @@ Food app with database (Flutter &amp; Firebase)
 
 
 # note: assets/images/app isn't exist, instead is: assets/images only, be aware.
+
+
+The main language of the application is Hebrew (IL).
