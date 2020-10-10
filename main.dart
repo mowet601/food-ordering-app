@@ -1,49 +1,56 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:food_ordering/pages/home.dart';
-
-void main() {
-  runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyApp(),
-    )
-  );
-}
+import 'package:food_ordering/colorScheme.dart';
+import 'package:food_ordering/widgets/category.dart';
+import 'semi_titles.dart';
 
 
-class MyApp extends StatefulWidget{
-  @override
-  _MyAppState createState() => _MyAppState();
-}
+// If data base is used' change it to get names and images for it
+List<Category> foodCategories = [
+  Category(cName: 'בורגר', icon:'burger.png'),
+  Category(cName: 'פיצה', icon:'pizza.png'),
+  Category(cName: 'סטייק', icon:'steak.png'),
+  Category(cName: 'סושי', icon:'sushi.png'),
+  Category(cName: 'נודלס', icon:'noodles.png'),
+  Category(cName: 'מאפים', icon:'pastry.png'),
+  Category(cName: 'פסטה', icon:'pasta.png'),
+  Category(cName: 'בירה', icon:'beer.png'),
+];
 
 
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState(){
-    super.initState();
-    Future.delayed(
-      Duration(seconds: 4),
-      () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
-      }
-    );
-  }
-
-
+class Categories extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-            child: Image(
-              image: AssetImage('assets/images/themePic.jpg'),
-              fit: BoxFit.fill,
-              height: double.infinity,
-              alignment: Alignment.center,
-            ),
-        )
+    return Container(
+      height: 120,
+      child: ListView.builder(
+        itemCount: foodCategories.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (_, index){ return Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+              color: white,
+              border: Border(
+                top: BorderSide(width: 1.5, color: primary),
+                left: BorderSide(width: 1.5, color: primary),
+                right: BorderSide(width: 1.5, color: primary),
+                bottom: BorderSide(width: 1.5, color: primary),
+              ),
+              borderRadius: BorderRadius.circular(10),
+              ),
+              margin: const EdgeInsets.fromLTRB(6, 0, 6, 0),
+              child: Image.asset('assets/images/${foodCategories[index].icon}', width: 50,),),
+              SizedBox(
+                height: 5,
+              ),
+              CustomSemiTitle(
+                text: "${foodCategories[index].cName}",
+              ),
+            ],
+          );
+        }
+      ),
     );
   }
 }
-
