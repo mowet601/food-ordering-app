@@ -77,6 +77,9 @@ class _HomeState extends State<Home>{
                   child: CustomTitle(text: "מסעדות",),
                 )
               ),
+
+              Restaurants(),
+              ),
             ],
           )
         ),
