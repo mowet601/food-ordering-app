@@ -1,56 +1,54 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:food_ordering/colorScheme.dart';
-import 'package:food_ordering/widgets/category.dart';
-import 'semi_titles.dart';
+import 'package:food_ordering/pages/home.dart';
+import 'package:splashscreen/splashscreen.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyApp(),
+    )
+  );
+}
 
 
-// If data base is used' change it to get names and images for it
-List<Category> foodCategories = [
-  Category(cName: 'בורגר', icon:'burger.png'),
-  Category(cName: 'פיצה', icon:'pizza.png'),
-  Category(cName: 'סטייק', icon:'steak.png'),
-  Category(cName: 'סושי', icon:'sushi.png'),
-  Category(cName: 'נודלס', icon:'noodles.png'),
-  Category(cName: 'מאפים', icon:'pastry.png'),
-  Category(cName: 'פסטה', icon:'pasta.png'),
-  Category(cName: 'בירה', icon:'beer.png'),
-];
+class MyApp extends StatefulWidget{
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
 
-class Categories extends StatelessWidget{
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 120,
-      child: ListView.builder(
-        itemCount: foodCategories.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (_, index){ return Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-              color: white,
-              border: Border(
-                top: BorderSide(width: 1.5, color: primary),
-                left: BorderSide(width: 1.5, color: primary),
-                right: BorderSide(width: 1.5, color: primary),
-                bottom: BorderSide(width: 1.5, color: primary),
-              ),
-              borderRadius: BorderRadius.circular(10),
-              ),
-              margin: const EdgeInsets.fromLTRB(6, 0, 6, 0),
-              child: Image.asset('assets/images/${foodCategories[index].icon}', width: 50,),),
-              SizedBox(
-                height: 5,
-              ),
-              CustomSemiTitle(
-                text: "${foodCategories[index].cName}",
-              ),
-            ],
-          );
-        }
+    return new SplashScreen(
+        loaderColor: white,
+        seconds: 7,
+        navigateAfterSeconds: new Home(),
+        title: new Text('Welcome to "The Kitchen"',
+          style: new TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30.0,
+            color: white,
+          ),
+        ),
+        image: Image.asset("assets/icons/logo.png",),
+      gradientBackground: LinearGradient(
+        // Where the linear gradient begins and ends
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          // Colors are easy thanks to Flutter's Colors class.
+          Colors.blueAccent[700],
+          Colors.blue[600],
+          Colors.blue[200],
+        ],
       ),
+        photoSize: 150,
     );
   }
 }
+
