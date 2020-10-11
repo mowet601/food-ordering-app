@@ -67,7 +67,16 @@ class _HomeState extends State<Home>{
               SizedBox(
                 height: 15,
               ),
+              
               Categories(),
+              
+              SizedBox(height: 10,),
+              
+              Container(
+                child: Center(
+                  child: CustomTitle(text: "מסעדות",),
+                )
+              ),
             ],
           )
         ),
