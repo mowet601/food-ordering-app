@@ -27,7 +27,7 @@ class Restaurants extends StatelessWidget{
           scrollDirection: Axis.vertical,
           itemBuilder: (_, index){
             return Padding(
-            padding: EdgeInsets.fromLTRB(7, 8, 7, 0),
+            padding: EdgeInsets.fromLTRB(15, 7.5, 15, 7.5),
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(50),
                 child: Stack(
