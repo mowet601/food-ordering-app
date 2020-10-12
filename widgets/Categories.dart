@@ -39,7 +39,7 @@ class Categories extends StatelessWidget{
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  margin: const EdgeInsets.fromLTRB(7, 0, 7, 0),
+                  margin: const EdgeInsets.fromLTRB(6.5, 0, 6.5, 0),
                   child: Image.asset('assets/images/${foodCategories[index].icon}', width: 50,),),
                 SizedBox(
                   height: 5,
