@@ -83,6 +83,28 @@ class _HomeState extends State<Home>{
             ],
           )
         ),
+      
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _index,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined),
+              title: Text("Home"),
+              backgroundColor: primary
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bookmark_border),
+              title: Text("History"),
+              backgroundColor: primary
+          ),
+        ],
+
+        onTap: (index){
+          setState(() {
+            _index = index;
+          });
+        },
+      ),
     );
   }
 }
