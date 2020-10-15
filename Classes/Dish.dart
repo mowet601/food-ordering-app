@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 // Model class for Restaurants list & ListView
 
-class Restaurant{
+class Dish{
   final String rName;
   final String picturePath;
   final String type;
