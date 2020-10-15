@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_ordering/widgets/Categories.dart';
 import 'package:food_ordering/widgets/titles.dart';
 import 'package:food_ordering/widgets/semi_titles.dart';
+import 'package:food_ordering/widgets/dished.dart';
 import '../colorScheme.dart';
-
-
 
 class Home extends StatefulWidget{
   @override
@@ -13,6 +12,8 @@ class Home extends StatefulWidget{
 
 
 class _HomeState extends State<Home>{
+  int _index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,23 +68,21 @@ class _HomeState extends State<Home>{
               SizedBox(
                 height: 15,
               ),
-              
+
               Categories(),
-              
-              SizedBox(height: 10,),
-              
+
+              SizedBox(height: 0,),
+
               Container(
                 child: Center(
-                  child: CustomTitle(text: "מסעדות",),
+                  child: CustomTitle(text: "מנות להזמנה",),
                 )
               ),
 
-              Restaurants(),
-              ),
+              Dishes(),
             ],
           )
-        ),
-      
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _index,
         items: [
